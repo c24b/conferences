@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style type="text/css">code{white-space: pre;}</style>
+  <style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level1">
+
+<h2 id="carnet-de-recherche-scientifique-avec-python">Carnet de recherche scientifique avec Python</h2>
+<p><small>PyConFR 2019, Bordeaux</small> <small><span class="citation" data-cites="c24b">@c24b</span></small> <small> DRISS</small></p>
+</section>
+<section class="slide level1">
+
+<h3 id="qui-parle">Qui parle ?</h3>
+<ul>
+<li>c24b <small>(elle)</small></li>
+<li>Python ~ [8-10] ans <small>(a perdu le compte)</small></li>
+<li><p>Ex-ingé/corsaire de recherche <small>(INRA, Mines, CNRS,BnF, PSE)</small></p></li>
+<li><p>Cheffe d'entreprise <small>(DRISS)</small></p></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>DRISS (Digital Research In Science &amp; Society)</p>
+Aider les chercheurs à :
+<div class="fragment">
+utiliser des outils open source
+</div>
+<div class="fragment">
+faciliter leur processus
+</div>
+<div class="fragment">
+faire de la recherche ouverte et reproductible
+</div>
+</section>
+<section class="slide level1">
+
+<h2 id="carnet-de-recherche">Carnet de recherche</h2>
+<h3 id="pourquoi">Pourquoi ?</h3>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="software-research.png" />
+</figure>
+<p><small>Credits: <span class="citation" data-cites="ixek">@ixek</span></small></p>
+</section>
+<section class="slide level1">
+
+<h3 id="le-cycle-modélisé">Le cycle modélisé</h3>
+<figure>
+<img src="stack.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<p><strong>Du coté des ingénieurs</strong></p>
+<blockquote>
+<p>Outiller et documenter le travail autour des données</p>
+</blockquote>
+<ul>
+<li><div class="fragment">
+médiation, redevabilité et transparence
+</div></li>
+<li><div class="fragment">
+projet maintenable, reproductible, réutilisable
+</div></li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p><strong>Du coté des chercheurs</strong></p>
+<blockquote>
+<p>Communiquer ses recherches et ses résultats</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="publish.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<p>Plusieurs enjeux derrière la publication</p>
+<ul>
+<li>Collaboration</li>
+<li>Expérimentation</li>
+<li>Evaluation par les pairs</li>
+<li>Publication (formats, contraintes, contenus)</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Plusieurs enjeux derrière le développement</p>
+<ul>
+<li>Valider ses traitements</li>
+<li>Résultats réplicables</li>
+<li>Méthodes réutilisables</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h3 id="le-cycle-de-recherche-modélisé">Le cycle de recherche (modélisé)</h3>
+<figure>
+<img src="stack.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="stacktools.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<blockquote>
+<p>Gérer un projet de recherche comme du développement logiciel ?</p>
+</blockquote>
+<ul>
+<li>Tickets: hypothèses et plan d'analyse</li>
+<li>Branches: analyse</li>
+<li>Releases: resultats + rédaction de l'article à publier</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<figure>
+<img src="gitlab_workflow.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<h2 id="collaborer-entre-chercheurs">Collaborer entre chercheurs</h2>
+<ul>
+<li>s'accorder sur un langage descriptif simple et minimal commun</li>
+<li>travailler à plusieurs chercheurs</li>
+<li>correction et reprise, historique et attribution</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h2 id="outils-pour-la-rédaction-collaborative">Outils pour la rédaction collaborative</h2>
+<table>
+<tbody>
+<tr class="odd">
+<td>markdown</td>
+<td><img src="markdown.png" /></td>
+<td><a href="https://github.com/scholmd/scholmd/wiki">scholarly markdown</a></td>
+</tr>
+<tr class="even">
+<td>git</td>
+<td><img src="git.png" /></td>
+<td><a href="https://github.com/dmgerman/git-for-research">git for research</a></td>
+</tr>
+<tr class="odd">
+<td>gitlab</td>
+<td><img src="gitlab-ce.png" /></td>
+<td><a href="https://github.blog/2014-05-14-improving-github-for-science/">gitlab for researcher</a></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level1">
+
+<p>Ecrire en markdown des articles scientifiques:</p>
+<ul>
+<li>séparer le contenu de la présentation</li>
+<li>adapter le contenu à chaque format de présentation:
+<ul>
+<li>une présentation md2reveal</li>
+<li>un article de blog md2html</li>
+<li>un appel à proposition</li>
+<li>un article de revue md2pdf</li>
+</ul></li>
+<li>gérer ses versions successives</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Pour les débutants git</p>
+<p>GitLab-CE offre une interface web d'édition en ligne de markdown <img src="gitlab-ce_webedit.png" /></p>
+</section>
+<section class="slide level1">
+
+<h3 id="experimenter">Experimenter</h3>
+<p>Travail entre l'ingénieur et le chercheur</p>
+</section>
+<section class="slide level1">
+
+<p>Pour le dev, plusieurs préoccupations:</p>
+<ul>
+<li>ne pas se rajouter du boulot</li>
+<li>code compréhensible, modifiable, appropriable</li>
+<li>environnement réplicable deployable et testable en ligne</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Pour le chercheur:</p>
+<ul>
+<li>documentation claire et compréhensible</li>
+<li>test et expérimentation clé en main</li>
+<li>graphiques</li>
+<li>ajout de citation et de style</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<p>Le carnet de recherche</p>
+<ul>
+<li>dans un environnement replicable</li>
+<li>versionné et historicisé</li>
+<li>partageable modifiable et exportable</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<h4 id="créer-un-kernel-spécifique-pour-jupyterlab">Créer un kernel spécifique pour jupyterlab:</h4>
+<p>A partir du fichier requirements.txt dans le projet</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">virtualenv</span> ~/.sci-env --p /usr/bin/python3
+$ <span class="bu">source</span> ~/.sci-env/bin/activate
+<span class="kw">(</span><span class="ex">sci-env</span><span class="kw">)</span>$ <span class="ex">pip</span> install -r requirements.txt</code></pre></div>
+</section>
+<section id="un-environnement-os-indépendant" class="slide level1">
+<h1>Un environnement os-indépendant</h1>
+<figure>
+<img src="guix.png" alt="https://hpc.guix.info/blog/2019/10/towards-reproducible-jupyter-notebooks/" /><figcaption>https://hpc.guix.info/blog/2019/10/towards-reproducible-jupyter-notebooks/</figcaption>
+</figure>
+</section>
+<section class="slide level1">
+
+<h3 id="documenter-son-code">Documenter son code</h3>
+<p>Choix d'utiliser <code>py2nb</code></p>
+<p><code>pip install py2nb</code></p>
+<ul>
+<li>Versionnable en l'état</li>
+<li>Documentation intégrée</li>
+</ul>
+</section>
+<section class="slide level1">
+
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">#| # Testing ipython notebook</span>
+<span class="co">#| This is designed to demonstrate a simple script that converts a script into</span>
+<span class="co">#| a jupyter notebook with a simple additional markdown format.</span>
+<span class="co">#|</span>
+<span class="co">#| Code by default will be put into code cells</span>
+<span class="co">#|</span>
+<span class="co">#| * To make a markdown cell, prefix the comment line with with &#39;#|&#39;</span>
+<span class="co">#| * To split a code cell, add a line beginning with &#39;#-&#39;</span>
+
+<span class="im">import</span> numpy
+<span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt
+<span class="op">%</span>matplotlib inline
+
+<span class="co">#| Here is a markdown cell.</span>
+<span class="co">#| Maths is also possible: $A=B$</span>
+<span class="co">#|</span>
+<span class="co">#| There are code cells below, split by &#39;#-&#39;:</span>
+
+x <span class="op">=</span> numpy.random.rand(<span class="dv">5</span>)
+
+<span class="co">#-------------------------------</span>
+
+y <span class="op">=</span> numpy.random.rand(<span class="dv">4</span>)
+z <span class="op">=</span> numpy.random.rand(<span class="dv">3</span>)
+
+<span class="co">#| Here are some plots</span>
+
+x <span class="op">=</span> numpy.linspace(<span class="op">-</span><span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1000</span>)
+y <span class="op">=</span> x<span class="op">**</span><span class="dv">3</span>
+fig, ax <span class="op">=</span> plt.subplots()
+ax.plot(x,y)</code></pre></div>
+</section>
+<section class="slide level1">
+
+<h4 id="transformer-son-code-existant-en-jupyter-notebook">Transformer son code existant en jupyter-notebook</h4>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">
+<span class="kw">(</span><span class="ex">sci-env</span><span class="kw">)</span>$ <span class="ex">py2nb</span> myscript.py</code></pre></div>
+<blockquote>
+<p>Crée un jupyter-notebook de test à destination du chercheur</p>
+</blockquote>
+</section>
+<section class="slide level1">
+
+<h4 id="tester-le-code-en-ligne">Tester le code en ligne</h4>
+<figure>
+<img src="binder.png" />
+</figure>
+</section>
+<section class="slide level1">
+
+<h3 id="post-traitement">Post-traitement</h3>
+<p>Convertir dans l'autre sens pour les modifications et versionning</p>
+<ul>
+<li>Nettoyage des cellules</li>
+<li>Ajout des modification dans le code source</li>
+<li>Ajout à la doc</li>
+</ul>
+<pre><code>jupyter-nb-convert --to python
+jupyter-nb-conert --to markdown</code></pre>
+</section>
+<section class="slide level1">
+
+<h3 id="exporter">Exporter</h3>
+<p>jupyter-nbconvert myscript.ipynb --to pdf jupyter-nbconvert myscript.ipynb --to slides jupyter-nbconvert myscript.ipynb --to latex</p>
+</section>
+<section class="slide level1">
+
+<h3 id="exporter-avec-citations">Exporter avec citations</h3>
+<ul>
+<li>On gère les sources grâce à un fichier BibTeX.</li>
+<li>Le style de citation peut être personnalisé grâce un fichier CSL.</li>
+<li>Le tout est ensuite combiné dans Pandoc pour générer un fichier de sortie (Word, PDF, LaTeX, etc.). <code>pandoc</code> <code>pandoc-citeproc</code> <code>zotero-betterbibtext</code></li>
+</ul>
+<p><a href="https://zotero.hypotheses.org/2258#ecrit_academique">Blog Zotero</a></p>
+</section>
+<section class="slide level1">
+
+<h2 id="credits">Credits</h2>
+<p><small>Largely inspired by</small> <small><span class="citation" data-cites="ixek">[@ixek talk]</span>(https://speakerdeck.com/trallard/reproducible-science-the-good-the-bad-the-ugly-and-the-untold) </small></p>
+</section>
+    </div>
+  </div>
+
+  <script src="reveal.js/lib/js/head.min.js"></script>
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
